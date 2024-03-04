@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diabetes Predictor</h1>
+        <form id="diabetes-form" method="POST">
+            <label for="pregnancies">Pregnancies:</label>
+            <input type="text" name="pregnancies" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="glucose">Glucose:</label>
+            <input type="text" name="glucose" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="blood_pressure">Blood Pressure:</label>
+            <input type="text" name="blood_pressure" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="skin_thickness">Skin Thickness:</label>
+            <input type="text" name="skin_thickness" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="insulin">Insulin:</label>
+            <input type="text" name="insulin" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="bmi">BMI:</label>
+            <input type="text" name="bmi" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="diabetes_pedigree_function">Diabetes Pedigree Function:</label>
+            <input type="text" name="diabetes_pedigree_function" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <label for="age">Age:</label>
+            <input type="text" name="age" pattern="[0-9]+(\.[0-9]+)?" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result">
+            {% if result %}
+                <p>{{ result }}</p>
+            {% endif %}
+            {% if error_message %}
+                <p class="error">{{ error_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
